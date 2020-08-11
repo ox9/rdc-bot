@@ -17,7 +17,7 @@ export class Echo extends Command {
     }
 
     get syntax() {
-        return '<text: message>';
+        return '<text: message | optional>';
     }
     
     get description() {
@@ -29,6 +29,9 @@ export class Echo extends Command {
      * @param {Message} msg 
      */
     onInvoked(msg) {
+        if (msg.trimed === "") {
+            msg.trimed = "Echoed!";
+        }
 		msg.channel.send(msg.trimed);
     }
 }
