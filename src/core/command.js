@@ -24,7 +24,7 @@ export class Command extends Abstract {
 
         text = text.trimLeft()
         if (text.startsWith(this.prefix)) {
-            return text.substring(this.prefix.length);
+            return text.substring(this.prefix.length).trimLeft();
         }
         return false;
     }
