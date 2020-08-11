@@ -1,4 +1,5 @@
 import { Abstract } from './abstract';
+import { MessageEmbed } from 'discord.js';
 
 export class Command extends Abstract {
     
@@ -6,7 +7,9 @@ export class Command extends Abstract {
         super(['onInvoked'], ['name', 'prefix', 'syntax', 'description']);
 
         this.parent = parent;
-        parent.children.push(this);
+        if (parent !== null) {
+            parent.children.push(this);
+        }
     }
 
     /**
@@ -27,5 +30,30 @@ export class Command extends Abstract {
             return text.substring(this.prefix.length).trimLeft();
         }
         return false;
+    }
+
+    get info() {
+        return {
+            color: 0x42b9f5,
+            title: `Command "${this.name}"`,
+            description: this.description,
+            fields: [
+                {
+                    name: 'Command Group',
+                    value: this.parent === null ? 'None' : this.parent.name,
+                    inline: false
+                },
+                {
+                    name: 'Prefix',
+                    value: this.prefix,
+                    inline: false
+                },
+                {
+                    name: 'Syntax',
+                    value: this.syntax,
+                    inline: false
+                }
+            ]
+        };
     }
 }
