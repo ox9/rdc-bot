@@ -5,8 +5,11 @@ import { registerCommand } from "..";
  */
 export class Command extends Abstract {
     
-    constructor() {
+    constructor(parent) {
         super('getPrefix', 'getSyntax', 'getDescription', 'onInvoked');
         registerCommand(this);
+
+        this.parent = parent;
+        parent.children.push(this);
     }
 }
