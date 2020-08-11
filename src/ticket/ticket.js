@@ -15,5 +15,15 @@ class Ticket extends CommandGroup {
     }
 }
 
+function sendCustomEmbed(title, message, color, channel) {
+    var embed = new discord.MessageEmbed()
+      .addField(title, message)
+      .setColor(color)
+  
+    channel.send(embed);
+}
+
+
 const _ticket = new Ticket();
-export { _ticket as ticket };
+
+export { _ticket as ticket, sendCustomEmbed };

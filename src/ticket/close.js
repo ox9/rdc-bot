@@ -1,19 +1,13 @@
 //Imports
 import { Command } from '../core/command';
-import { ticket } from '../ticket/ticket';
+import { ticket, sendCustomEmbed } from '../ticket/ticket';
 import { Message } from 'discord.js';
 
 //Variables
 var ticketCategory = "742859481695912057";
 
 //Functions
-function sendCustomEmbed(title, message, color, channel) {
-    var embed = new discord.MessageEmbed()
-      .addField(title, message)
-      .setColor(color)
-  
-    channel.send(embed);
-}
+
 
 //Exports
 export class Close extends Command {
