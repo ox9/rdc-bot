@@ -19,7 +19,7 @@ client.on('message', msg => {
 	if (!msg.content.startsWith(CONFIG.BOT_PREFIX)) { return; }
 
 	for (const cmd of registeredCmds) {
-		const retval = cmd.isInvoked(msg.content.substr(1));
+		const retval = cmd.isInvoked(msg.content.substring(1));
 		console.log(retval);
 		if (retval !== false) {
 			msg.trimed = retval;
