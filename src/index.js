@@ -14,7 +14,6 @@ client.on('message', msg => {
 
 	for (const cmd of CONFIG.REGISTERED_CMDS) {
 		const retval = cmd.isInvoked(msg.content.substring(1));
-		console.log(retval);
 		if (retval !== false) {
 			msg.trimed = retval;
 			cmd.onInvoked(msg);
