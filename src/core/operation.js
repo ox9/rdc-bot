@@ -1,9 +1,8 @@
-/**
- * Required methods: 'do'
- */
+import { Abstract } from './abstract';
+
 export class Operation extends Abstract {
 
     constructor() {
-        super('do');
+        super(['do']);
     }
 }

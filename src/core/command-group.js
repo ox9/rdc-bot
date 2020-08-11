@@ -1,14 +1,10 @@
-import { registerCommandGroup } from "..";
+import { Abstract } from './abstract';
 
-/**
- * Required methods: 'getPrefix', 'getDescription'
- */
 export class CommandGroup extends Abstract {
 
     constructor() {
-        super('getPrefix', 'getDescription');
-        registerCommandGroup(this);
+        super([], ['prefix', 'description']);
         this.children = [];
     }
-    
+
 }

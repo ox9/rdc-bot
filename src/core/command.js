@@ -1,15 +1,14 @@
-import { registerCommand } from "..";
+import { Abstract } from './abstract';
 
-/**
- * Required methods: 'getPrefix', 'getSyntax', 'getDescription', 'onInvoked'
- */
 export class Command extends Abstract {
     
     constructor(parent) {
-        super('getPrefix', 'getSyntax', 'getDescription', 'onInvoked');
-        registerCommand(this);
+        super(['onInvoked'], ['prefix', 'syntax', 'description']);
 
-        this.parent = parent;
         parent.children.push(this);
+    }
+
+    isInvoked(msg) {
+        
     }
 }
