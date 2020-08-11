@@ -3,7 +3,7 @@ import { Message } from "discord.js";
 
 export class Guild extends Command {
     constructor() {
-        super(null);
+        super();
     }
     
     get name() {

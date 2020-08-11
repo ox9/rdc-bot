@@ -3,7 +3,7 @@ import { MessageEmbed } from 'discord.js';
 
 export class Command extends Abstract {
     
-    constructor(parent) {
+    constructor(parent=null) {
         super(['onInvoked'], ['name', 'prefix', 'syntax', 'description']);
 
         this.parent = parent;

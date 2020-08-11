@@ -5,7 +5,7 @@ import { CONFIG } from '../config';
 export class User extends Command {
 
     constructor() {
-        super(null);
+        super();
     }
 
     get name() {

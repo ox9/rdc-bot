@@ -8,7 +8,7 @@ import { CONFIG } from '../config';
 export class Help extends Command {
 
     constructor() {
-        super(null);
+        super();
     }
 
     get name() {
