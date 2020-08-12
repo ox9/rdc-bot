@@ -10,7 +10,7 @@ import { test } from './test/test';
 import { ticket } from './ticket/ticket'
 
 export const CONFIG = {
-    TESTING: process.env.TESTING === 'TRUE',
+    TESTING: process.env.TESTING,
 
     BOT_PREFIX: '!',
     
@@ -22,5 +22,5 @@ export const CONFIG = {
         close: new Close(), create: new Create() },
     get REGISTERED_CMDS() { return Object.values(CONFIG.REGISTERED_CMD_MAP) },
 
-    get MOD_ROLE_ID() { return CONFIG.TESTING ? '742575786967564298' : '333135760125591562' }
+    MOD_ROLE_ID: process.env.TESTING ? '742575786967564298' : '333135760125591562'
 }
