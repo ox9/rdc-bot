@@ -15,5 +15,5 @@ class Market extends CommandGroup {
     }
 }
 
-const _test = new Test();
-export { _test as test };
+const _market = new Market();
+export { _market as market };
