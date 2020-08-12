@@ -1,6 +1,7 @@
 import { CommandGroup } from '../core/command-group.js';
+import { CONFIG } from '../config.js';
 
-const ticketCategory = "742859481695912057";
+const ticketCategory = CONFIG.TESTING ? "742859481695912057" : "742910776620089425";
 
 class Ticket extends CommandGroup {
 
