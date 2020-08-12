@@ -1,5 +1,7 @@
 import { CommandGroup } from '../core/command-group.js';
 
+const ticketCategory = "742859481695912057";
+
 class Ticket extends CommandGroup {
 
     get name() {
@@ -15,15 +17,19 @@ class Ticket extends CommandGroup {
     }
 }
 
-function sendCustomEmbed(title, message, color, channel) {
-    var embed = new discord.MessageEmbed()
-      .addField(title, message)
-      .setColor(color)
-  
-    channel.send(embed);
+function sendCustomEmbed(title, message, color, channel) {  
+    channel.send({ embed: {
+        fields: [
+            {
+                name: title, 
+                value: message,
+                inline: false,
+            }
+        ],
+        color: color
+    } });
 }
-
 
 const _ticket = new Ticket();
 
-export { _ticket as ticket, sendCustomEmbed };
+export { _ticket as ticket, sendCustomEmbed, ticketCategory };

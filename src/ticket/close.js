@@ -1,15 +1,7 @@
-//Imports
 import { Command } from '../core/command';
-import { ticket, sendCustomEmbed } from '../ticket/ticket';
+import { ticket, sendCustomEmbed, ticketCategory } from '../ticket/ticket';
 import { Message } from 'discord.js';
 
-//Variables
-var ticketCategory = "742859481695912057";
-
-//Functions
-
-
-//Exports
 export class Close extends Command {
 
     constructor() {
@@ -29,7 +21,7 @@ export class Close extends Command {
     }
     
     get description() {
-        return 'Closes existing ticket';
+        return 'Closes the existing ticket';
     }
 
     /**
@@ -37,7 +29,7 @@ export class Close extends Command {
      * @param {Message} msg 
      */
     onInvoked(msg) {
-        if (msg.channel.id == ticketCategory) {
+        if (msg.channel.name === msg.author.id || msg.member.hasPermission('MANAGE_CHANNELS')) {
             msg.channel.delete();
         } else {
             msg.reply("Invalid channel");

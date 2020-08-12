@@ -1,5 +1,6 @@
 import { Abstract } from './abstract';
 import { MessageEmbed } from 'discord.js';
+import { CONFIG } from '../config';
 
 export class Command extends Abstract {
     
@@ -50,10 +51,14 @@ export class Command extends Abstract {
                 },
                 {
                     name: 'Syntax',
-                    value: this.syntax,
+                    value: `${this.reference} ${this.syntax}`,
                     inline: false
                 }
             ]
         };
+    }
+
+    get reference() {
+        return `${CONFIG.BOT_PREFIX}${this.parent !== null ? this.parent.prefix + ' ' : ''}${this.prefix}`;
     }
 }

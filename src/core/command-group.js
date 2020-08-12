@@ -21,10 +21,14 @@ export class CommandGroup extends Abstract {
                 },
                 {
                     name: 'Children',
-                    value: this.children.map(v => v.prefix).toString(),
+                    value: this.children.map(v => v.prefix).join(', '),
                     inline: false
                 }
             ]
         };
+    }
+
+    get reference() {
+        return `${CONFIG.BOT_PREFIX}${this.prefix}`;
     }
 }
