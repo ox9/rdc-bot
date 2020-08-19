@@ -61,7 +61,7 @@ export class Create extends Command {
 				
 				sendCustomEmbed(
 					`Your ticket is ready, ${user.username}.`,
-					`Run \`\`${CONFIG.REGISTERED_CMD_MAP.close.reference}\`\` to close this ticket.`,
+					`Run \`\`${REGISTER.REGISTERED_CMD_MAP.close.reference}\`\` to close this ticket.`,
 					"#26aafc",
 					channel
 					);

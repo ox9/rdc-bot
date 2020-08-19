@@ -1,9 +1,10 @@
 import { Client } from 'discord.js';
 import { CONFIG } from './config';
+import { REGISTER } from './register';
+
+console.log(CONFIG);
 
 const client = new Client();
-
-require('dotenv').config();
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
@@ -12,7 +13,7 @@ client.on('ready', () => {
 client.on('message', msg => {
 	if (!msg.content.startsWith(CONFIG.BOT_PREFIX)) { return; }
 
-	for (const cmd of CONFIG.REGISTERED_CMDS) {
+	for (const cmd of REGISTER.REGISTERED_CMDS) {
 		const retval = cmd.isInvoked(msg.content.substring(1));
 		if (retval !== false) {
 			msg.trimed = retval;

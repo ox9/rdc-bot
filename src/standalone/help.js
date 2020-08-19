@@ -1,6 +1,7 @@
 import { Command } from '../core/command';
 import { Message } from 'discord.js';
 import { CONFIG } from '../config';
+import { REGISTER } from '../register';
 
 /**
  * @author 
@@ -37,14 +38,14 @@ export class Help extends Command {
             return;
         }
 
-        for (const cmd of CONFIG.REGISTERED_CMDS) {
+        for (const cmd of REGISTER.REGISTERED_CMDS) {
             if (cmd.isInvoked(msg.trimed) !== false) {
                 msg.channel.send({embed: cmd.info});
                 return;
             }
         }
 
-        for (const cmdGroup of CONFIG.REGISTERED_CMD_GROUPS) {
+        for (const cmdGroup of REGISTER.REGISTERED_CMD_GROUPS) {
             if (msg.trimed === cmdGroup.prefix) {
                 msg.channel.send({embed: cmdGroup.info});
                 return;
