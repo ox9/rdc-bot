@@ -29,13 +29,22 @@ export class User extends Command {
      * @param {Message} msg 
      */
     onInvoked(msg) {
-        let member = msg.mentions.members.first() || msg.member;
+        let member = msg.mentions.members.first();
 
-        if (member == msg.member && msg.trimed !== '') {
-            msg.channel.send('Invalid user or user is not in guild.');
-            return;
+        if (member == undefined) {
+            if (msg.trimed !== '') {
+                const firstNumbers = msg.trimed.match(/\d+/g)[0];
+                const numberMember = msg.guild.members.cache.get(firstNumbers);
+                if (numberMember === undefined) {
+                    msg.channel.send('Invalid user or user is not in guild.');
+                    return;
+                } else {
+                    member = numberMember;
+                }
+            } else {
+                member = msg.member;
+            }
         }
-
         const embed = {
             color: CONFIG.HELP_COLOR,
             title: `User "${member.user.username}#${member.user.discriminator}"`,
