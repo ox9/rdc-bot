@@ -36,7 +36,6 @@ export class Guild extends Command {
                 fields: [
                     { name: "Server ID", value: guild.id },
                     { name: "Member Count", value: guild.memberCount },
-                    { name: "Description", value: guild.description },
                     { name: "Creation Date", value: guild.createdAt },
                     { name: "Owner", value: guild.owner },
                 ],
