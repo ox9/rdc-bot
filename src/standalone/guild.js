@@ -28,7 +28,7 @@ export class Guild extends Command {
     */
     onInvoked(msg) {
         const guild = msg.guild;
-        message.channel.send({
+        msg.channel.send({
             embed: {
                 color: "#26aafc",
                 title: guild.name,
