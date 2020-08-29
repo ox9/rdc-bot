@@ -1,0 +1,18 @@
+[
+    {
+        "cue": "pins",
+        "answer": "Read channel pins for specialized channel rules."
+    },
+    {
+        "cue": "freescripts",
+        "answer": "Don't ask for free scripts in #scripting-help."
+    },
+    {
+        "cue": "wrongchannel",
+        "answer": "Use channels appropriately. Do not talk about inappropriate topics in unrelated channels."
+    },
+    {
+        "cue": ["report", "issue"],
+        "answer": "If you have an issue with moderation or you would like to report someone, use ``!ticket create``."
+    }
+]
