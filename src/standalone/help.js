@@ -52,6 +52,6 @@ export class Help extends Command {
             }
         }
 
-        msg.channel.send(`Did you misspell something? Use ${CONFIG.BOT_PREFIX}${this.prefix} ${this.prefix} to see how this command works.`);
+        msg.channel.send(`Did you misspell something? Use ``${CONFIG.BOT_PREFIX}${this.prefix} ${this.prefix}`` to see how this command works.`);
     }
 }
